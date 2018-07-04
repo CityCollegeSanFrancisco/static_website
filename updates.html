@@ -1,0 +1,161 @@
+<html>
+  
+  <head>
+
+    <style>
+
+      body {
+        margin: 0 0;
+        font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; 
+      }
+
+      #banner-header {
+        height: 153px;
+        background-color: #e0e0e0;
+        text-align: center;
+      }
+
+      #tabs {
+        overflow: hidden;
+        background-color: #303;
+        height: 52px;
+        padding: 0px 52px;
+      }
+
+      #tabs a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      #tabs a:hover {
+        background-color: #ddd;
+        color: gray;
+      }
+
+      #tabs a.active {
+        background-color: #333333;
+        color: white;
+      }
+
+      #container {
+        background-color: #f0f0f0;
+        content: "";
+        display: table;
+        clear: both;
+        width: 80%; /* Mobile layout should be 100% */
+        margin: 17px auto;
+      }
+
+      #left-container { /* Mobile layout should be 100% width and no float */
+        width: 170px;
+        float: left;
+        padding: 13px;
+      }
+
+      #left-container img {
+        width: 100%;
+      }
+
+      #center-container { /* Mobile layout should be 100% width and no float */
+        width: 50%;
+        float: left;
+        padding: 23px;
+      }
+
+      #right-container { /* Mobile layout should be 100% width and no float */
+        width: 20%;
+        float: left;
+        padding: 23px;
+      }
+ 
+      #right-container img {
+        width: 100%;
+      }
+
+      .fancy {
+        font-family: 'SimonciniGaramond-Italic', arial, sans-serif;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 1.3em;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="banner-header">
+      <h3>Next meeting: Tuesday, July 3rd @Philz Coffee</h3>
+      <p>[[ Insert Mascot Here ]]</p>
+    </div>
+
+    <div id="tabs">
+
+        <a href="home.html"">Home</a>
+        <a class="active" href="updates.html">Updates</a>
+        <a href="support.html">Support</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+
+    </div>
+
+    <div id="container">
+       
+      <div id="left-container">
+
+       <p><img src="imgs/philz_coffee.png"></p>
+      
+       <h5>Come for a meeting, learn about what we are doing and support us by buying us coffee!</h5>
+ 
+       <p>We meet at Philz Coffee once a week usually on a Tuseday or Wednesday
+near <a href="http://ccsf.edu">City College of San Francisco</a></p>
+
+      </div>
+      
+      <div id="center-container">
+
+	<h2>Highlights</h2>
+	<p>June 26th, 2018: We played the classic game Set and James wrote a Java implementation <a href="https://repl.it/@JamesFyfe/Set">here</a></p>
+
+	<h2>Meeting Notes</h2>
+ 	  <ul>
+            <li>July 3rd, 2018: <a href="#">[[ link ]]</a>
+            <li>June 22nd, 2018: <a href="#">[[ link ]]</a>
+            <li>...
+          </ul>
+        </h2>
+
+      </div>
+
+      <div id="right-container">
+
+       <p>Our diverse group learns a range of backend, frontend, hardware and
+software tools in the process of developing this content.</p>
+
+       <h5>Visualizing Teacher Pay and it's relationship with Cost of
+Living through the United States</h5>
+       
+       <p><img src="imgs/map.png"></p>
+
+       <p></p>
+
+       <h5>Data Analysis Using Scrabble</h5>
+
+       <p><img src="imgs/scrabble.png"></p>
+
+       <p>We chat, converse and play Scrabble in addition to getting
+familiarized with a number of different board games</p>
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
