@@ -1,0 +1,27 @@
+body {
+    background-color: white;
+    font-family: helvetica;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: lighter;
+}
+
+h2  {
+    line-height: 1.5;
+}
+
+p {
+    line-height: 1.5;
+}
+
+img {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+iframe {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
