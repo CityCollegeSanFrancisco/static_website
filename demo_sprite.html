@@ -1,0 +1,67 @@
+<html>
+
+  <style>
+
+    body {
+
+      margin: 0 0;
+      padding: 0 0;
+      background-color: #ffeeff;
+
+    }
+
+    #container {
+
+      width: 900px;
+      text-align: center;
+      margin: 0 auto;
+      background-color: #ddffdd;
+
+    }
+
+  </style>
+
+  <script>
+
+    var spriteImage = new Image();
+    spriteImage.src = "imgs/numbers_400_159.png";
+
+  </script>
+
+  <body>
+
+    <div id="container">
+
+      <canvas id="DisplayBox"></canvas>
+
+    </div>
+
+  </body>
+
+  <script>
+
+    var counter = 0;
+    var index = 0;
+
+    function animate() {
+ 
+      var canvas = document.getElementById("DisplayBox");
+      canvas.width = 400/5;
+      canvas.height = 159/2;  
+
+      var context = canvas.getContext("2d");
+      var win_x = 400/5;
+      var win_y = 159/2;
+      index = counter % 5;
+      context.drawImage(spriteImage, index*win_x, 0, win_x, win_y, 0, 0, win_x, win_y);
+      counter+=1;
+
+   };
+   
+   for ( var i=0; i<100; i++ ) {
+     setTimeout(animate, i*900); // 900 milliseconds
+   }
+
+  </script>
+
+</html>
