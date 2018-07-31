@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1561.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Helvetica; min-height: 18.0px}
+  </style>
+</head>
+<body>
+<p class="p1">During a meeting in June, we took a break from the code/GitHub/what-are-we-even-doing-here talk and played a game of Set. Set is a game where there are 12 cards, each with 1 of 3 numbers, fills, colors, and shapes. The goal is to find 3 cards where the each attribute is either all the same, or all different. (read Andy Ly’s SetPost for a more in depth explanation of Set). While leaving Philz, we decided that it would be pretty simple to code, that was until 3am the next morning.</p>
+<p class="p2"><br></p>
+<p class="p1">I knew I had to create the 12 cards, but that was as simple as creating 12, 4 element arrays and randomizing each element from 0-2 (each element defining a different card attribute). I then had to figure out how I would compare each card and find all of the sets. I knew I had to compare the same element from 3 different cards and see if they were either all the same or all different. Later I realized that if 2 cards had the same attribute, but 3rd card didn’t, it could not be a set. This seemed like a super simple way to compare them. After a little bit of testing I realized it was gonna take me a lot longer then I had anticipated. For each attribute I had to write an if statement comparing each card multiple times. It ended up being 4 very long if statements but I got it to work in the end.</p>
+<p class="p2"><br></p>
+<p class="p1"><a href="https://repl.it/@JamesFyfe/Set">https://repl.it/@JamesFyfe/Set</a></p>
+</body>
+</html>
