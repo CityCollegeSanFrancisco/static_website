@@ -1,0 +1,45 @@
+body {
+    background-color: white;
+    font-family: helvetica;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: lighter;
+}
+
+h2  {
+    line-height: 1.5;
+}
+
+p {
+    line-height: 1.5;
+}
+
+iframe {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+img {
+    max-width: 50%;
+    max-height: auto;
+}
+div.polaroid {
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.container {
+    text-align: center;
+    padding: 10px 20px;
+}
+.resize {
+    width: 400px;
+    height: auto;
+}
+
+.resize {
+    width: 300px;
+    height: auto;
+}
