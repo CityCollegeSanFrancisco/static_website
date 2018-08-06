@@ -1,45 +1,59 @@
 body {
     background-color: white;
     font-family: helvetica;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 h1 {
+    text-align: center;
     font-size: 4em;
     font-weight: lighter;
 }
 
 h2  {
     line-height: 1.5;
+     font-size: 2em;
 }
 
 p {
     line-height: 1.5;
+     font-size: 1.5em;
 }
 
 iframe {
     margin-top: 2em;
     margin-bottom: 2em;
 }
-img {
-    max-width: 50%;
-    max-height: auto;
-}
 div.polaroid {
-    width: 80%;
+    width: 50%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
+    margin: 0 auto;
 }
 
 div.container {
     text-align: center;
     padding: 10px 20px;
 }
-.resize {
-    width: 400px;
-    height: auto;
-}
 
 .resize {
-    width: 300px;
+    width: 800px;
     height: auto;
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+   
