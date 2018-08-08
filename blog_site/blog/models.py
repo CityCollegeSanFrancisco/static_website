@@ -8,7 +8,7 @@ class Contributor(models.Model):
     """
     Model representing a contributor to a post
     """
-    uniqueId = models.CharField(max_length=20, help_text='ID')
+    #uniqueId = models.CharField(max_length=20, help_text='ID')
     first_name = models.CharField(max_length=20, help_text='first name')
     last_name = models.CharField(max_length=20, help_text='last name')
 
@@ -29,7 +29,7 @@ class Editor(models.Model):
     """
     Model representing an editor of a post
     """
-    uniqueId = models.CharField(max_length=20, help_text='ID')
+    #uniqueId = models.CharField(max_length=20, help_text='ID')
     first_name = models.CharField(max_length=20, help_text='first ame')
     last_name = models.CharField(max_length=20, help_text='last name')
 
@@ -50,7 +50,7 @@ class Tag(models.Model):
     """
     Model representing tags for posts to organize by topic, programming language etc
     """
-    name = models.CharField(max_length=20, help_text='ID')
+    name = models.CharField(max_length=20, help_text='Add a keyword to tag the post for easy discovery, e.g.\'Python\', \'Game Analysis\',etc')
 
     def __str__(self):
         """
@@ -74,7 +74,7 @@ class Post(models.Model):
 
     """
 
-    uniqueId = models.CharField(max_length=20, help_text='ID')
+    #uniqueId = models.CharField(max_length=20, help_text='ID')
     title = models.CharField(max_length=50, help_text='title')
     contributor = models.ManyToManyField(Contributor, help_text='Select contributors')  
     #design so that editors can add and choose from a list of contributors
@@ -90,6 +90,15 @@ class Post(models.Model):
 
     #class Meta: (is this right?)
     ordering = ['-updated']
+
+    def display_contributors(self):
+        """
+        Create a string for contributors to be displayed in admin
+        """
+        return ', '.join((contributor.first_name + ' ' + contributor.last_name) for contributor in self.contributor.all()[:2])
+    
+    display_contributors.short_description = 'Contributors'
+        
     def get_absolute_url(self):
          """Returns the url to access a particular instance of MyModelName."""
          return reverse('post-detail-view', args=[str(self.id)])
