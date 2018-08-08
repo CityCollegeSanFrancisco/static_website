@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 class Editor(models.Model):
     uniqueId = model.CharField((max_length=20, help_text='ID')
@@ -29,7 +29,7 @@ class Contributor(models.Model):
     
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.field_name
+        return self.first_name + ' ' + self.last_name 
 
 ###########
 
@@ -56,7 +56,7 @@ class Post(models.Model)
     
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.field_name
+        return self.title
 
 ###########
 
@@ -64,5 +64,7 @@ class Tag
     name = model.CharField((max_length=20, help_text='ID')
     #posts = 
 
-
+    def __str__(self):
+        """String for representing the MyModelName object (in Admin site etc.)."""
+        return self.name
 
