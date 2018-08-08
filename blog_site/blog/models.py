@@ -3,43 +3,77 @@
 from django.db import models
 from django.urls import reverse
 
-###########
 
 class Contributor(models.Model):
+    """
+    Model representing a contributor to a post
+    """
     uniqueId = models.CharField(max_length=20, help_text='ID')
     first_name = models.CharField(max_length=20, help_text='first name')
     last_name = models.CharField(max_length=20, help_text='last name')
-#    posts = models.ManyToManyField('Post') # use string for not-yet-defined parameter
-#    tags = models.ManyToManyField('Tag')  # use string for not-yet-defined parameter
 
     def get_absolute_url(self):
-         """Returns the url to access a particular instance of MyModelName."""
-         return reverse('model-detail-view', args=[str(self.id)])
+        """
+        Returns the url to access a particular instance of MyModelName.
+        """
+        return reverse('contributer-detail-view', args=[str(self.id)])
     
-    #def __str__(self):
-     #   """String for representing the MyModelName object (in Admin site etc.)."""
-      #  return self.first_name + ' ' + self.last_name 
-
-###########
+    def __str__(self):
+        """
+        String for representing the MyModelName object (in Admin site etc.).
+        """
+        return self.first_name + ' ' + self.last_name 
 
 
 class Editor(models.Model):
+    """
+    Model representing an editor of a post
+    """
     uniqueId = models.CharField(max_length=20, help_text='ID')
     first_name = models.CharField(max_length=20, help_text='first ame')
     last_name = models.CharField(max_length=20, help_text='last name')
-#    posts = models.ManyToManyField('Post') # use string for not-yet-defined parameter
-#    tags = models.ManyToManyField('Tag')  # use string for not-yet-defined parameter
-    def get_absolute_url(self):
-         """Returns the url to access a particular instance of MyModelName."""
-         return reverse('model-detail-view', args=[str(self.id)])
-    
-    #def __str__(self):
-     #   """String for representing the MyModelName object (in Admin site etc.)."""
-      #  return self.first_name + ' ' + self.last_name 
 
-###########
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular instance of MyModelName.
+        """
+        return reverse('Editor-detail-view', args=[str(self.id)])
+    
+    def __str__(self):
+        """
+        String for representing the MyModelName object (in Admin site etc.).
+        """
+        return self.first_name + ' ' + self.last_name 
+
+
+class Tag(models.Model):
+    """
+    Model representing tags for posts to organize by topic, programming language etc
+    """
+    name = models.CharField(max_length=20, help_text='ID')
+
+    def __str__(self):
+        """
+	String for representing the MyModelName object (in Admin site etc.).
+	"""
+        return self.name
+
 
 class Post(models.Model):
+    """
+    Model representing a blog post. A post can have multiple contributors and editors.
+    Every post has 
+	- at least one tag to organize by topic, programming language etc
+	- a title/headline, 
+	- a dek (a one-sentence summary/subhead displayed above the text), 
+	- text, 
+	- code (iframe from repl or just code; this can be inserted somewhere in the text),
+	- a lead image to go at the top
+	- other optional images
+	- pull quote(s) (excerpts displayed on the page in a larger font style)
+
+    """
+
     uniqueId = models.CharField(max_length=20, help_text='ID')
     title = models.CharField(max_length=50, help_text='title')
     contributor = models.ManyToManyField(Contributor, help_text='Select contributors')  
@@ -52,27 +86,17 @@ class Post(models.Model):
     lead_image = models.ImageField
     images = models.ImageField
     pull_quotes = models.TextField(help_text='pull quote')
-    tags = models.ManyToManyField
+    tags = models.ManyToManyField(Tag)
 
     #class Meta: (is this right?)
     ordering = ['-updated']
     def get_absolute_url(self):
          """Returns the url to access a particular instance of MyModelName."""
-         return reverse('model-detail-view', args=[str(self.id)])
+         return reverse('post-detail-view', args=[str(self.id)])
     
     def __str__(self):
         """String for representing the MyModelName object (in Admin site etc.)."""
         return self.title
 
 
-###########
-
-
-class Tag:
-    name = models.CharField(max_length=20, help_text='ID')
-    #posts = 
-
-    def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.name
 
