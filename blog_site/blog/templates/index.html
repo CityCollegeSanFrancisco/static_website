@@ -1,0 +1,40 @@
+<!-- Home page template extended from base_generic -->
+
+{% extends "base_generic.html" %}
+{% block title %}<title>Take Five</title>{% endblock %}
+{% block content %}
+  <h1>Take Five Blog</h1>
+  <p>Welcome to the Take Five Blog, a website developed by <em>CCSF Computer Science students</em>!</p>
+
+  <h2>Recent posts</h2>
+    <!-- create loop of recent posts with previews etc-->
+		  {% if post_list%}
+	  <ul>
+	    {% for post in post_list %}
+	      <li>
+		<a href="{{ post.get_absolute_url }}">{{ post.title }}</a> ({{post.contributor}})
+	      </li>
+	    {% endfor %}
+	  </ul>
+	  {% else %}
+	    <p>There are no posts to display.</p>
+	  {% endif %}
+  <!-- from mozilla example: 
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+  </ul>
+  NB template variables with keys from views.context
+  context = {
+    'num_books': num_books,
+    'num_instances': num_instances,
+    'num_instances_available': num_instances_available,
+    'num_authors': num_authors,
+  }
+
+  return render(request, 'index.html', context=context) 
+  -->
+{% endblock %}

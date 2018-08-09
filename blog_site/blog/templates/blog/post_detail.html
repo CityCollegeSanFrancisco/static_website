@@ -1,0 +1,25 @@
+<!-- Post detail template extends base template. Displays post content 
+Note: use { <percent> commment %} to comment out django template language-->
+<!-- Styling might be better done in bootstrap or CSS file -->
+{% extends "base_generic.html" %}
+{% block title %}<title>{{ post.title }}</title>{% endblock %}
+{% block content %}
+<h1><strong>{{ post.title }}</strong></h1>
+<br>
+{% comment "disabled for testing%}
+<!--{{ post.lead_image }}-->
+{% endcomment %}
+<h5>{{ post.dek }}</h5>
+<br>
+<p style="font-variant: small-caps;">{{ post.display_tags | lower}}</p>
+<p style="font-variant: small-caps;">by {{ post.display_contributors | lower}} | {{ post.updated | lower }}</p>
+<br>
+<p>{{ post.text | safe }}</p> <!-- How to get this to render as formatted text??-->
+{% comment "disabled for testing%}
+<p>{{ post.text }}</p> <!-- How to get this to render as formatted text??-->
+{% endcomment %}
+<h3>Run the code{{ post.code | safe}}</h3>
+{% comment "disabled for testing; is there a way to autodisplay the pull quote inside the text block?%}
+<p>{{ post.pull_quotes }}</p>
+{% endcomment %}
+{% endblock %}
