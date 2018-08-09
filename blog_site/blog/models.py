@@ -95,10 +95,16 @@ class Post(models.Model):
         """
         Create a string for contributors to be displayed in admin
         """
-        return ', '.join((contributor.first_name + ' ' + contributor.last_name) for contributor in self.contributor.all()[:2])
+        return ' and '.join((contributor.first_name + ' ' + contributor.last_name) for contributor in self.contributor.all()[:2])
     
     display_contributors.short_description = 'Contributors'
-        
+
+    def display_tags(self):
+        """
+        Create a string to show all tags for the post (future: as links to tag pages)
+        """
+        return ' | '.join(tag.name for tag in self.tags.all())
+
     def get_absolute_url(self):
          """Returns the url to access a particular instance of MyModelName."""
          return reverse('post-detail-view', args=[str(self.id)])
