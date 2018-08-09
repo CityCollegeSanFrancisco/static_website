@@ -1,7 +1,23 @@
-{% extends "base_generic.html" %}
+<!-- Post detail template extends base template. Displays post content -->
 
+{% extends "base_generic.html" %}
+{% block title %}<title>{{ post.title }}</title>{% endblock %}
 {% block content %}
-  <h1>Title: {{ post.title }}</h1>
+  <h1>{{ post.title }}</h1>
+<!--{{ post.lead_image }}-->
+<p>{{ post.dek }}</p>
+<p>{{ post.display_contributors }}</p>
+<p>{{ post.updated }}</p>
+<p>{{ post.text }}</p> <!-- How to get this to render as formatted text??-->
+<!--<p>{{ post.text | safe| linebreaks}}</p> <!-- How to get this to render as formatted text??-->
+<p>{{ post.code }}</p>
+<p>{{ post.pull_quotes }}</p>
+<p>{{ post.tags }}</p>
+
+
+
+
+
   <!-- mozilla example:
   <p><strong>Author:</strong> <a href="">{{ book.author }}</a></p> <!-- author detail link not yet defined -->
   <p><strong>Summary:</strong> {{ book.summary }}</p>

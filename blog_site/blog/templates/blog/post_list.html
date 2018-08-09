@@ -1,3 +1,5 @@
+<!-- Post list template extends base template. Displays list of all posts -->
+
 {% extends "base_generic.html" %}
 
 {% block content %}
@@ -6,7 +8,7 @@
   <ul>
     {% for post in post_list %}
       <li>
-        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a> ({{post.contributor}})
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a> by {{post.display_contributors}}
       </li>
     {% endfor %}
   </ul>
