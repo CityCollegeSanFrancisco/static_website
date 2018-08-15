@@ -1,444 +1,616 @@
 
 <html>
+
 <head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+
+</head>
+
+<body>
+
 <style>
 
 body {
+        margin: 0 0;
+        padding: 0 0;
+	background-color: #edcc97;
+}
 
-	background-color: #dedeee;
+.card {
+    height: 135;
+    width: 210;
 }
 
 
-#shape {
-	width:48;
-	height:96;
-	background: url(imgs/AllSetCards.png) -0px;
+.button {
+    background-color: #ffffff;
+    border-radius:6px;
+    position: fixed;
+    border: none;
+    padding: 68px 105px;
+    display: inline-block;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.greybutton {
+    background-color: #000000;
+    border-radius:6px;
+    position: fixed;
+    border: none;
+    padding: 68px 105px;
+    display: inline-block;
+    cursor: pointer;
+    opacity: 0.15;
 }
 
 
-
-.shape1 {
-	position: absolute;
- 	width: 258px;
-	top: 48px;
-	text-align: center;
+div.text {
+    position:fixed;
+    top: 318;
+    left: 850;
+    font-size: 45;
 }
-
-
-.shape2 {
-	position: absolute;
- 	width: 768px;
-	top: 48px;
-	text-align: center;
-}
-
-.shape3 {
-	position: absolute;
- 	width: 1278px;
-	top: 48px;
-	text-align: center;
-}
-
-.shape4 {
-	position: absolute;
- 	width: 258px;
-	top: 213px;
-	text-align: center;
-}
-
-.shape5 {
-	position: absolute;
- 	width: 768px;
-	top: 213px;
-	text-align: center;
-}
-
-.shape6 {
-	position: absolute;
- 	width: 1278px;
-	top: 213px;
-	text-align: center;
-}
-
-.shape7 {
-	position: absolute;
- 	width: 258px;
-	top: 378px;
-	text-align: center;
-}
-
-.shape8 {
-	position: absolute;
- 	width: 768px;
-	top: 378px;
-	text-align: center;
-}
-
-.shape9 {
-	position: absolute;
- 	width: 1278px;
-	top: 378px;
-	text-align: center;
-}
-
-.shape10 {
-	position: absolute;
- 	width: 258px;
-	top: 543px;
-	text-align: center;
-}
-
-.shape11 {
-	position: absolute;
- 	width: 768px;
-	top: 543px;
-	text-align: center;
-}
-
-.shape12 {
-	position: absolute;
- 	width: 1278px;
-	top: 543px;
-	text-align: center;
-}
-
-
 
 </style>
 
 
-<body>
+<script>
+
+    var sprite = new Image();
+    sprite.src = "imgs/AllSetCards.png";
+
+    var select1 = null;
+    var select2 = null;
+    var select3 = null;
+
+    var buttonA;
+    var buttonB;
+    var buttonC;
+    
+</script>
 
 
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 30; left: 30;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 30; left: 285;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 30; left: 540;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 195; left: 30;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 195; left: 285;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 195; left: 540;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 360; left: 30;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 360; left: 285;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 360; left: 540;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 525; left: 30;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 525; left: 285;">
-<img src="imgs/card.png" alt="card" height="135" width="210" style="position: fixed; top: 525; left: 540;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 30; left: 30;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 30; left: 285;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 30; left: 540;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 195; left: 30;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 195; left: 285;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 195; left: 540;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 360; left: 30;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 360; left: 285;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 360; left: 540;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 525; left: 30;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 525; left: 285;">
+<img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 525; left: 540;">
 
 
+<canvas id="box" style="position: fixed; top: 30; left: 30;" width="718"; height="628";></canvas>
 
-<div class="shape1">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-</div>
 
-<div class="shape2">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
+<div id="button1"<button class="button" style="position: fixed; top: 30; left: 30;" onclick="selection(card1, button1);"></button></div>
+<div id="button2"<button class="button" style="position: fixed; top: 30; left: 285;" onclick="selection(card2, button2);"></button></div>
+<div id="button3"<button class="button" style="position: fixed; top: 30; left: 540;" onclick="selection(card3, button3);"></button></div>
+<div id="button4"<button class="button" style="position: fixed; top: 195; left: 30;" onclick="selection(card4, button4);"></button></div>
+<div id="button5"<button class="button" style="position: fixed; top: 195; left: 285;" onclick="selection(card5, button5);"></button></div>
+<div id="button6"<button class="button" style="position: fixed; top: 195; left: 540;" onclick="selection(card6, button6);"></button></div>
+<div id="button7"<button class="button" style="position: fixed; top: 360; left: 30;" onclick="selection(card7, button7);"></button></div>
+<div id="button8"<button class="button" style="position: fixed; top: 360; left: 285;" onclick="selection(card8, button8);"></button></div>
+<div id="button9"<button class="button" style="position: fixed; top: 360; left: 540;" onclick="selection(card9, button9);"></button></div>
+<div id="button10"<button class="button" style="position: fixed; top: 525; left: 30;" onclick="selection(card10, button10);"></button></div>
+<div id="button11"<button class="button" style="position: fixed; top: 525; left: 285;" onclick="selection(card11, button11);"></button></div>
+<div id="button12"<button class="button" style="position: fixed; top: 525; left: 540;" onclick="selection(card12, button12);"></button></div>
 
-<div class="shape3">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
+<div class="text"<p id="set" class"text"></p></div>
 
-<div class="shape4">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
-
-<div class="shape5">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
-
-<div class="shape6">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
-
-<div class="shape7">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
-
-<div class="shape8">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
-
-<div class="shape9">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
-
-<div class="shape10">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
-
-<div class="shape11">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0"> </div>
-
-<div class="shape12">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">
-	<img id="shape" src="imgs/Blank.png" alt="shape" style="margin:0 5 0 0">  </div>
-
-<canvas id="box"></canvas>
-
-</body>
 
 <script>
 
-//User finds sets between 12 cards
 
-import java.util.Arrays;
-import java.util.Scanner;
+function timed(){
+var text = document.getElementById("set").innerHTML = ("Sorry, thats not a Set");
+}
+</script>
 
-class Main 
-{
-  public static void main(String[] args)
-  {  
-    char again;
+
+<script>
+
+    function selection(card, button){
     
-    int[] userGuess = new int[3];
+	if(select1 == card){
+	select1 = null;
+	$(button).toggleClass("button greybutton");
+	}
+	else if(select2 == card){
+	select2 = null;
+	$(button).toggleClass("button greybutton");
+	}
 
-    int[] card1 = new int [4]; //declaring each card as an array with 4 attributes
-    int[] card2 = new int [4];
-    int[] card3 = new int [4];
-    int[] card4 = new int [4];
-    int[] card5 = new int [4];
-    int[] card6 = new int [4];
-    int[] card7 = new int [4];
-    int[] card8 = new int [4];
-    int[] card9 = new int [4];
-    int[] card10 = new int [4];
-    int[] card11 = new int [4];
-    int[] card12 = new int [4];
-  
+	else if(select1 === null){
+	    select1 = card;
+	    $(button).toggleClass("button greybutton");
+	    buttonA = button;
+	
+	}
+	else if(select2 === null){
+	    select2 = card;
+	    $(button).toggleClass("button greybutton");
+	    buttonB = button;
+	}
+	else if(select3 === null){
+	    select3 = card;
+	    $(button).toggleClass("button greybutton");
+	    buttonC = button;
+	}
+	
+	if(select1 != null && select2 != null && select3 != null){
+	var userGuess = [select1, select2, select3];
+	setDetector(userGuess, buttonA, buttonB, buttonC);
+	}
 
-      card1 = cardGen(card1); //generates random card
-      card2 = cardGen(card2);
-      card3 = cardGen(card3);
-      card4 = cardGen(card4);
-      card5 = cardGen(card5);
-      card6 = cardGen(card6);
-      card7 = cardGen(card7);
-      card8 = cardGen(card8);
-      card9 = cardGen(card9);
-      card10 = cardGen(card10);
-      card11 = cardGen(card11);
-      card12 = cardGen(card12);
+};
+
+</script>
+
+<script>
+
+function setDetector(userGuess, buttonA, buttonB, buttonC) {
 
 
-        int[][] allCards = {card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12}; //creates double array with all cards
+if(userGuess[0][0] == userGuess[1][0] && userGuess[0][0] != userGuess[2][0] || userGuess[1][0] == userGuess[2][0] && userGuess[1][0] != userGuess[0][0]|| userGuess[0][0] == userGuess[2][0] && userGuess[0][0] != userGuess[1][0]) //if 2 cards have the same attribute but the other does not, that means they can't be a set
+    {
+    setTimeout(function(){
+    document.getElementById("set").innerHTML = ("Sorry, thats not a Set");
+    select1=null;
+    select2=null;
+    select3=null;
+    $(buttonA).toggleClass("button greybutton");
+    $(buttonB).toggleClass("button greybutton");
+    $(buttonC).toggleClass("button greybutton");
+    },300);
+    setTimeout(function(){
+    document.getElementById("set").innerHTML = ("");
+    },2000);
+    }
+              
+    else if(userGuess[0][1] == userGuess[1][1] && userGuess[0][1] != userGuess[2][1] || userGuess[1][1] == userGuess[2][1] && userGuess[1][1] != userGuess[0][1]|| userGuess[0][1] == userGuess[2][1] && userGuess[0][1] != userGuess[1][1])
+    {
+    document.getElementById("set").innerHTML = ("Sorry, thats not a Set");
+    setTimeout(function(){
+    select1=null;
+    select2=null;
+    select3=null;
+    $(buttonA).toggleClass("button greybutton");
+    $(buttonB).toggleClass("button greybutton");
+    $(buttonC).toggleClass("button greybutton");
+    },300);
+    setTimeout(function(){
+    document.getElementById("set").innerHTML = ("");
+    },2000);
+    }
 
- 
+    else if(userGuess[0][2] == userGuess[1][2] && userGuess[0][2] != userGuess[2][2] || userGuess[1][2] == userGuess[2][2] && userGuess[1][2] != userGuess[0][2]|| userGuess[0][2] == userGuess[2][2] && userGuess[0][2] != userGuess[1][2])
+    {
+    document.getElementById("set").innerHTML = ("Sorry, thats not a Set");
+    setTimeout(function(){
+    select1=null;
+    select2=null;
+    select3=null;
+    $(buttonA).toggleClass("button greybutton");
+    $(buttonB).toggleClass("button greybutton");
+    $(buttonC).toggleClass("button greybutton");
+    },300);
+    setTimeout(function(){
+    document.getElementById("set").innerHTML = ("");
+    },2000);
+    }
 
-	int xpos = -252;
-	int ypos = -117;
+    else if(userGuess[0][3] == userGuess[1][3] && userGuess[0][3] != userGuess[2][3] || userGuess[1][3] == userGuess[2][3] && userGuess[1][3] != userGuess[0][3]|| userGuess[0][3] == userGuess[2][3] && userGuess[0][3] != userGuess[1][3])
+    {
+    document.getElementById("set").innerHTML = ("Sorry, thats not a Set");
+    setTimeout(function(){
+    select1=null;
+    select2=null;
+    select3=null;
+    $(buttonA).toggleClass("button greybutton");
+    $(buttonB).toggleClass("button greybutton");
+    $(buttonC).toggleClass("button greybutton");
+    },300);
+    setTimeout(function(){
+    document.getElementById("set").innerHTML = ("");
+    },2000);
+    }
 
-window.onload = function draw() {
+    else //if the card makes it through all the ifs then it is a set make 3 new cards
+    {
+    document.getElementById("set").innerHTML = ("You found a Set!");
+    setTimeout(function(){
+    select1=null;
+    select2=null;
+    select3=null;
+    $(buttonA).toggleClass("button greybutton");
+    $(buttonB).toggleClass("button greybutton");
+    $(buttonC).toggleClass("button greybutton");
+    },1500);
+    setTimeout(function(){
+    document.getElementById("set").innerHTML = ("");
+    },2000);
+    }
+};
+
+</script>
+
+
+<script>
+
+
+    function animate1(spritex, xpos, ypos) {
 
       var canvas = document.getElementById("box");
-      canvas.width = 600;
-      canvas.height = 600; 
-
       var context = canvas.getContext("2d");
 
-      for(int i = 0; i < 12; i++) //prints out all shapes
+      context.drawImage(sprite, spritex, 0, 48, 96, xpos, ypos, 48, 96);
+};
+
+    function animate2(spritex, xpos, ypos) {
+
+      var canvas = document.getElementById("box");
+      var context = canvas.getContext("2d");
+
+      context.drawImage(sprite, spritex, 0, 48, 96, xpos-29, ypos, 48, 96);
+      context.drawImage(sprite, spritex, 0, 48, 96, xpos+29, ypos, 48, 96);
+};
+  
+  function animate3(spritex, xpos, ypos) {
+      var canvas = document.getElementById("box");
+      var context = canvas.getContext("2d");
+
+      context.drawImage(sprite, spritex, 0, 48, 96, xpos-58, ypos, 48, 96);
+      context.drawImage(sprite, spritex, 0, 48, 96, xpos, ypos, 48, 96);
+      context.drawImage(sprite, spritex, 0, 48, 96, xpos+58, ypos, 48, 96);
+};
+
+</script>
+
+
+<script>
+
+function random(card) {
+  for(i=0; i<4; i++)
+    card[i] = Math.floor(Math.random() * 3);
+    }
+
+  var card1 = [];
+  var card2 = [];
+  var card3 = [];
+  var card4 = [];
+  var card5 = [];
+  var card6 = [];
+  var card7 = [];
+  var card8 = [];
+  var card9 = [];
+  var card10 = [];
+  var card11 = [];
+  var card12 = [];
+
+
+  random(card1);
+  random(card2);
+  random(card3);
+  random(card4);
+  random(card5);
+  random(card6);
+  random(card7);
+  random(card8);
+  random(card9);
+  random(card10);
+  random(card11);
+  random(card12);
+
+var allCards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12];
+    
+
+$(document).ready(function(){
+
+    var xpos = -175;
+    var ypos = -146;
+
+      for(i = 0; i < 12; i++) //prints out all shapes
         {
-	xpos += 510;
+	xpos += 255;
 	
 	if(i%3 == 0)
 	{
 	  ypos += 165;
-	  xpos = 258;
+	  xpos = 80;
 	}
 
-          if(allCards[i][0] == 0)
+	  if(allCards[i][0] == 0)
 	  {
-             if(allCards[i][1] == 0)
-	     {
-	        if(allCards[i][2] == 0)
-		   for(int j = -1; j < allCards[i][3]; j++)
-			
-		else if(allCards[i][2] == 1)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else
-		   for(int j = -1; j < allCards[i][3]; j++)
-	     }
-	     else if(allCards[i][1] == 1)
-	     {
-	        if(allCards[i][2] == 0)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else if(allCards[i][2] == 1)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else
-		   for(int j = -1; j < allCards[i][3]; j++)
-	     }
-	     else
-	     {
-	        if(allCards[i][2] == 0)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else if(allCards[i][2] == 1)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else
-		   for(int j = -1; j < allCards[i][3]; j++)
-	     }
+            if(allCards[i][1] == 0)
+	    {
+	      if(allCards[i][2] == 0)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(0, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(0, xpos, ypos);
+                else
+                  animate3(0, xpos, ypos);
+              }
+	      else if(allCards[i][2] == 1)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(50, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(50, xpos, ypos);
+                else
+                  animate3(50, xpos, ypos);
+              }
+	      else
+              {
+                if(allCards[i][3] == 0)
+                  animate1(100, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(100, xpos, ypos);
+                else
+                  animate3(100, xpos, ypos);
+              }
+	    }
+	    else if(allCards[i][1] == 1)
+	    {
+	      if(allCards[i][2] == 0)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(150, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(150, xpos, ypos);
+                else
+                  animate3(150, xpos, ypos);
+              }
+	      else if(allCards[i][2] == 1)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(200, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(200, xpos, ypos);
+                else
+                  animate3(200, xpos, ypos);
+              }
+	      else
+              {
+                if(allCards[i][3] == 0)
+                  animate1(250, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(250, xpos, ypos);
+                else
+                  animate3(250, xpos, ypos);
+              }
+	    }
+	    else
+	    {
+	      if(allCards[i][2] == 0)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(300, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(300, xpos, ypos);
+                else
+                  animate3(300, xpos, ypos);
+              }
+	      else if(allCards[i][2] == 1)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(350, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(350, xpos, ypos);
+                else
+                  animate3(350, xpos, ypos);
+              }
+	      else
+              {
+                if(allCards[i][3] == 0)
+                  animate1(400, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(400, xpos, ypos);
+                else
+                  animate3(400, xpos, ypos);
+              }
+	    }
 	  }
 
 	  if(allCards[i][0] == 1)
 	  {
-             if(allCards[i][1] == 0)
-	     {
-	        if(allCards[i][2] == 0)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else if(allCards[i][2] == 1)
-	   	   for(int j = -1; j < allCards[i][3]; j++)
-		else
-		   for(int j = -1; j < allCards[i][3]; j++)
-	     }
-	     else if(allCards[i][1] == 1)
-	     {
-	        if(allCards[i][2] == 0)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else if(allCards[i][2] == 1)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else
-		   for(int j = -1; j < allCards[i][3]; j++)
-	     }
-	     else
-	     {
-	        if(allCards[i][2] == 0)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else if(allCards[i][2] == 1)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else
-		   for(int j = -1; j < allCards[i][3]; j++)
-	     }
+            if(allCards[i][1] == 0)
+	    {
+	      if(allCards[i][2] == 0)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(450, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(450, xpos, ypos);
+                else
+                  animate3(450, xpos, ypos);
+              }
+	      else if(allCards[i][2] == 1)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(500, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(500, xpos, ypos);
+                else
+                  animate3(500, xpos, ypos);
+              }
+	      else
+              {
+                if(allCards[i][3] == 0)
+                  animate1(550, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(550, xpos, ypos);
+                else
+                  animate3(550, xpos, ypos);
+              }
+	    }
+	    else if(allCards[i][1] == 1)
+	    {
+	      if(allCards[i][2] == 0)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(600, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(600, xpos, ypos);
+                else
+                  animate3(600, xpos, ypos);
+              }
+	      else if(allCards[i][2] == 1)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(650, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(650, xpos, ypos);
+                else
+                  animate3(650, xpos, ypos);
+              }
+	      else
+              {
+                if(allCards[i][3] == 0)
+                  animate1(700, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(700, xpos, ypos);
+                else
+                  animate3(700, xpos, ypos);
+              }
+	    }
+	    else
+	    {
+	      if(allCards[i][2] == 0)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(750, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate1(750, xpos, ypos);
+                else
+                  animate1(750, xpos, ypos);
+              }
+	      else if(allCards[i][2] == 1)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(800, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(800, xpos, ypos);
+                else
+                  animate3(800, xpos, ypos);
+              }
+		          else
+              {
+                if(allCards[i][3] == 0)
+                  animate1(850, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(850, xpos, ypos);
+                else
+                  animate3(850, xpos, ypos);
+              }
+	    }
           }
-
 	  if(allCards[i][0] == 2)
 	  {
-             if(allCards[i][1] == 0)
-	     {
-	        if(allCards[i][2] == 0)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else if(allCards[i][2] == 1)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else
-		   for(int j = -1; j < allCards[i][3]; j++)
-	     }
-	     else if(allCards[i][1] == 1)
-	     {
-	        if(allCards[i][2] == 0)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else if(allCards[i][2] == 1)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else
-		   for(int j = -1; j < allCards[i][3]; j++)
-	     }
-	     else
-	     {
-	        if(allCards[i][2] == 0)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else if(allCards[i][2] == 1)
-		   for(int j = -1; j < allCards[i][3]; j++)
-		else
-		   for(int j = -1; j < allCards[i][3]; j++)
-	     }
+            if(allCards[i][1] == 0)
+	      {
+	      if(allCards[i][2] == 0)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(900, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(900, xpos, ypos);
+                else
+                  animate3(900, xpos, ypos);
+              }
+	      else if(allCards[i][2] == 1)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(950, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(950, xpos, ypos);
+                else
+                  animate3(950, xpos, ypos);
+              }
+	      else
+              {
+                if(allCards[i][3] == 0)
+                  animate1(1000, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(1000, xpos, ypos);
+                else
+                  animate3(1000, xpos, ypos);
+              }
+	    }
+	    else if(allCards[i][1] == 1)
+	    {
+              if(allCards[i][2] == 0)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(1050, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(1050, xpos, ypos);
+                else
+                  animate3(1050, xpos, ypos);
+              }
+	      else if(allCards[i][2] == 1)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(1100, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(1100, xpos, ypos);
+                else
+                  animate3(1100, xpos, ypos);
+              }
+	      else
+              {
+                if(allCards[i][3] == 0)
+                  animate1(1150, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(1150, xpos, ypos);
+                else
+                  animate3(1150, xpos, ypos);
+              }
+	    }
+	    else
+	    {
+	      if(allCards[i][2] == 0)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(1200, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(1200, xpos, ypos);
+                else
+                  animate3(1200, xpos, ypos);
+              }
+	      else if(allCards[i][2] == 1)
+              {
+                if(allCards[i][3] == 0)
+                  animate1(1250, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(1250, xpos, ypos);
+                else
+                  animate3(1250, xpos, ypos);
+              }
+	      else
+              {
+                if(allCards[i][3] == 0)
+                  animate1(1300, xpos, ypos);
+                else if(allCards[i][3] == 1)
+                  animate2(1300, xpos, ypos);
+                else
+                  animate3(1300, xpos, ypos);
+              }
+	    }
           }
-
-
-      userGuess = userInput();
-
-      again = setDetector(userGuess, allCards);
-
-  }
-
-
-  static int[] cardGen(int card[]) //generates random attributes for each card
-  {
-    for(int i = 0; i < 4; i++)
-      {
-        card[i] = (int)(3*Math.random());
-      }
-    return card;
-  }
-
-
-  static int[] userInput() //takes users guess
-  {
-    Scanner sc = new Scanner(System.in);
-
-      System.out.println("Enter a set");
-        
-      int[] userGuess = new int[3];
-          
-        for(int i = 0; i < 3; i++)
-        {
-          userGuess[i] = sc.nextInt();
-          userGuess[i] = userGuess[i] - 1; 
         }
-      
-    return userGuess;
-  }
-    
-
-  static char setDetector(int userGuess[], int allCards[][])
-  {
-    Scanner sc = new Scanner(System.in);
-    char again = ('y');
-
-    if(allCards[userGuess[0]][0] == allCards[userGuess[1]][0] && allCards[userGuess[0]][0] != allCards[userGuess[2]][0] || allCards[userGuess[1]][0] == allCards[userGuess[2]][0] && allCards[userGuess[1]][0] != allCards[userGuess[0]][0]|| allCards[userGuess[0]][0] == allCards[userGuess[2]][0] && allCards[userGuess[0]][0] != allCards[userGuess[1]][0]) //if 2 cards have the same attribute but the other does not, that means they can't be a set
-    {
-      System.out.println("Sorry, thats not a set");
-      userGuess = userInput();
-      setDetector(userGuess, allCards);
-    }
-              
-    else if(allCards[userGuess[0]][1] == allCards[userGuess[1]][1] && allCards[userGuess[0]][1] != allCards[userGuess[2]][1] || allCards[userGuess[1]][1] == allCards[userGuess[2]][1] && allCards[userGuess[1]][1] != allCards[userGuess[0]][1]|| allCards[userGuess[0]][1] == allCards[userGuess[2]][1] && allCards[userGuess[0]][1] != allCards[userGuess[1]][1])
-    {
-      System.out.println("Sorry, thats not a set");
-      userGuess = userInput();
-      setDetector(userGuess, allCards);
-    }
-
-    else if(allCards[userGuess[0]][2] == allCards[userGuess[1]][2] && allCards[userGuess[0]][2] != allCards[userGuess[2]][2] || allCards[userGuess[1]][2] == allCards[userGuess[2]][2] && allCards[userGuess[1]][2] != allCards[userGuess[0]][2]|| allCards[userGuess[0]][2] == allCards[userGuess[2]][2] && allCards[userGuess[0]][2] != allCards[userGuess[1]][2])
-    {
-      System.out.println("Sorry, thats not a set");
-      userGuess = userInput();
-      setDetector(userGuess, allCards);
-    }
-
-    else if(allCards[userGuess[0]][3] == allCards[userGuess[1]][3] && allCards[userGuess[0]][3] != allCards[userGuess[2]][3] || allCards[userGuess[1]][3] == allCards[userGuess[2]][3] && allCards[userGuess[1]][3] != allCards[userGuess[0]][3]|| allCards[userGuess[0]][3] == allCards[userGuess[2]][3] && allCards[userGuess[0]][3] != allCards[userGuess[1]][3])
-    {
-      System.out.println("Sorry, thats not a set");
-      userGuess = userInput();
-      setDetector(userGuess, allCards);
-    }
-
-    else //if the card makes it through all the ifs then it is a set
-    {
-      System.out.println("Congradulations, you found a set!\nDo you want to keep playing?");
-      again = sc.next().toLowerCase().charAt(0);
-
-      int card1[] = new int[4];  //replaces set with 3 new cards
-      int card2[] = new int[4];
-      int card3[] = new int[4];
-      allCards[userGuess[0]] = cardGen(card1);
-      allCards[userGuess[1]] = cardGen(card2);
-      allCards[userGuess[2]] = cardGen(card3);
-    }
-    return again;
-  }
-}
-
+});
 </script>
-
+</body>
 </html>
-
-
    
-   
-
-
-
-
-
-
-
-
-
-
+  
