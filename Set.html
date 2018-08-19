@@ -13,8 +13,6 @@
 <style>
 
 body {
-        margin: 0 0;
-        padding: 0 0;
 	background-color: #edcc97;
 }
 
@@ -54,6 +52,13 @@ div.text {
     font-size: 45;
 }
 
+div.text2 {
+    position:fixed;
+    top: 80;
+    left: 940;
+    font-size: 45;
+}
+
 </style>
 
 
@@ -69,9 +74,10 @@ div.text {
     var buttonA;
     var buttonB;
     var buttonC;
+
+    var score = 0;
     
 </script>
-
 
 <img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 30; left: 30;">
 <img src="imgs/card.png" alt="card" class="card" style="position: fixed; top: 30; left: 285;">
@@ -103,19 +109,14 @@ div.text {
 <div id="button11"<button class="button" style="position: fixed; top: 525; left: 285;" onclick="selection(card11, button11);"></button></div>
 <div id="button12"<button class="button" style="position: fixed; top: 525; left: 540;" onclick="selection(card12, button12);"></button></div>
 
-<div class="text"<p id="set" class"text"></p></div>
+<div class="text"<p id="set"></p></div>
 
-
-<script>
-
-
-function timed(){
-var text = document.getElementById("set").innerHTML = ("Sorry, thats not a Set");
-}
-</script>
-
+<div class="text2"<p id="scorecounter"></p></div>
 
 <script>
+
+document.getElementById("scorecounter").innerHTML = ("Score: " + score);
+
 
     function selection(card, button){
     
@@ -151,6 +152,17 @@ var text = document.getElementById("set").innerHTML = ("Sorry, thats not a Set")
 	}
 
 };
+
+</script>
+
+<script>
+
+    var sec = 0;
+    function pad ( val ) { return val > 9 ? val : "0" + val; }
+    setInterval( function(){
+        $("#seconds").html(pad(++sec%60));
+        $("#minutes").html(pad(parseInt(sec/60,10)));
+    }, 1000);
 
 </script>
 
@@ -226,14 +238,16 @@ if(userGuess[0][0] == userGuess[1][0] && userGuess[0][0] != userGuess[2][0] || u
     else //if the card makes it through all the ifs then it is a set make 3 new cards
     {
     document.getElementById("set").innerHTML = ("You found a Set!");
-    setTimeout(function(){
+    score += 1;
+    document.getElementById("scorecounter").innerHTML = ("Score: " + score);
     select1=null;
     select2=null;
     select3=null;
+    setTimeout(function(){
     $(buttonA).toggleClass("button greybutton");
     $(buttonB).toggleClass("button greybutton");
     $(buttonC).toggleClass("button greybutton");
-    },1500);
+    },1000);
     setTimeout(function(){
     document.getElementById("set").innerHTML = ("");
     },2000);
@@ -612,5 +626,3 @@ $(document).ready(function(){
 </script>
 </body>
 </html>
-   
-  

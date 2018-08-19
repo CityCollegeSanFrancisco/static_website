@@ -1,28 +1,73 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1561.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 17.0px; font: 15.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 17.0px; font: 15.0px Helvetica; color: #000000; -webkit-text-stroke: #000000; min-height: 18.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 17.0px; font: 15.0px Helvetica; color: #0000ee; -webkit-text-stroke: #0000ee}
-    span.s1 {font-kerning: none}
-    span.s2 {text-decoration: underline ; font-kerning: none}
-  </style>
-</head>
+
 <body>
-<p class="p1"><span class="s1">During a meeting in June, we took a break from the code/GitHub/what-are-we-even-doing-here talk and played a game of Set. Set is a game where there are 12 cards, each with 1 of 3 numbers, fills, colors, and shapes. The goal is to find 3 cards where the each attribute is either all the same, or all different. (read Andy Ly’s SetPost for a more in depth explanation of Set). While leaving Philz, we decided that it would be pretty simple to code, that was until 3am the next morning.</span></p>
-<p class="p1"><span class="s1"><br>
-</span></p>
-<p class="p1"><span class="s1">I knew I had to create the 12 cards, but that was as simple as creating 12, 4 element arrays and randomizing each element from 0-2 (each element defining a different card attribute). I then had to figure out how I would compare each card and find all of the sets. I knew I had to compare the same element from 3 different cards and see if they were either all the same or all different. Later I realized that if 2 cards had the same attribute, but 3rd card didn’t, it could not be a set. This seemed like a super simple way to compare them. After a little bit of testing I realized it was going to take me a lot longer then I had anticipated. For each attribute I had to write an if statement comparing each card multiple times. It ended up being 4 very long if statements but I got it to work in the end.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">My ultimate goal for this is to make my first fully working game. I have added in most of the code I think I will need, and now I’m learning to use Gimp to add sprites for the cards. We are planning on making it an iOS game and see what happens from there.<br>
-</span></p>
-<p class="p3"><span class="s2"><a href="https://repl.it/@JamesFyfe/Set">https://repl.it/@JamesFyfe/Set</a></span></p>
-</body>
+
+<style>
+
+body {
+background-color: #edcc97;
+}
+
+.text {
+margin: 50 100 75 100;
+}
+
+.title {
+margin: 25;
+text-align: center;
+font-size: 30;
+}
+
+.image {
+align: right;
+padding: 50;
+}
+
+</style>
+
+
+
+<div class="title"><strong>Coding Set</strong></div>
+
+<img src="http://www.theboardgamefamily.com/wp-content/uploads/2013/03/SetCards.jpg" width="350" height="250" align="right" style="margin:50">
+<div class="text"
+<p>
+During a meeting in June, we took a break from the code/GitHub/what-are-we-even-doing-here talk and played a game of Set. Set is a game where there are 12 cards, each with 1 of 3 numbers, fills, colors, and shapes. The goal is to find 3 cards where the each attribute is either all the same, or all different. (read Andy Ly’s SetPost for a more in depth explanation of Set). While leaving Philz, we decided that it would be pretty simple to code, that was until 3am the next morning.
+</p>
+ <p>
+I knew I had to create the 12 cards, but that was as simple as creating 12, 4 element arrays and randomizing each element from 0-2 (each element defining a different card attribute). I then had to figure out how I would compare each card and find all of the sets. I knew I had to compare the same element from 3 different cards and see if they were either all the same or all different. Later I realized that if 2 cards had the same attribute, but 3rd card didn’t, it could not be a set. This seemed like a super simple way to compare them. After a little bit of testing I realized it was going to take me a lot longer then I had anticipated. For each attribute I had to write an if statement comparing each card multiple times. It ended up being 4 very long if statements but I got it to work in the end.
+</p>
+ <p>
+My ultimate goal for this is to make my first fully working game. I have added in most of the code I think it will need, and now I’m learning to use Gimp to add sprites for the cards. We are planning on making it an iOS game and see what happens from there. </p>
+</div>
+
+
+<div class="title"><strong>August 18 Update</strong></div>
+
+<p>
+<img src="imgs/setscreenshot.png" width="350" height="270" align="right" style="margin:50">
+<div class="text">
+Turning my java code into a fully working game was much more difficult then I thought but I learned a ton. I had to learn the basics of html and css for the webpage layout and I had to translate my code into javascript which luckily is similar to java which I know. I started out by making a rough layout of where the cards and shapes would go on the page. Since I'm lazy, I thought I would get away with learning on the go but it ended up taking a long time (~10 hours) to just get the card layout right.
+</p>
+
+<p>
+I then had to translate all of my java code into javascript. This ended up not being too difficult thanks to w3schools. After I had translated the code I started working on getting it to print the the randomized shapes. I got stuck for a while on this part and ended up having to get help (thanks Professor Woo). As there are 81 total card options, this took a while aswell.
+Eventually I got all the printing working and it was time to start making the game functional.
+</p>
+
+<p>
+I looked online for a while on how to read screen clicks and cause them to run a function. I ended up making buttons which fit the cards and turned the opacity to 0 so you could see through them. This probably isn't the cleanest way to do it but it worked. When a button is clicked on, it saves the 4 attributes of the card behind it and when 3 cards are selected it compares them to see if it's a Set. I then made the buttons change opacity slightly when clicked on to make it easier to know which cards are selected, I also added clicking a selected card again to unselect it. From here The game was mostly working apart from a couple problems which I will fix eventually. I'm now just working on adding a few little features like score counter and timer.
+</p>
+
+<p>
+My version of this game will never become super popular or anything, but that wasn't the goal (and I would probably get sued a lot if it did). But I ended up learning a lot from this project including a couple new programming languages and some basic image editing. It also taught me how to think about real world stuff like a computer would. For example using numbers to compare cards instead of shapes and colors. I encourage anyone who is interested in programming to start a project similar to this to see what you can come up with and what you can learn from it.
+</p>
+
+</div>
+
+
+</p>
+
+<body>
+
 </html>
