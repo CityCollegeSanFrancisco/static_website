@@ -33,3 +33,8 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('', RedirectView.as_view(url='/blog/')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG is True:
+  urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
